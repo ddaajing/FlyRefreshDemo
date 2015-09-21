@@ -21,9 +21,6 @@
 @property (nonatomic, assign) BOOL isFlighting;
 @property (nonatomic, strong) UIView *roundedAirPort;
 
-@property (nonatomic, strong) CAAnimation *setOffAnimation;
-@property (nonatomic, strong) CAAnimation *backAnimation;
-
 @end
 
 @implementation FlyHeaderView
@@ -138,7 +135,8 @@
     groupAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     
     [self.planeImageView.layer addAnimation:groupAnimation forKey:@"planeAnimation"];
-    self.setOffAnimation = groupAnimation;
+    CGRect rect = CGRectMake(0, 0, 375.f, self.horizonLineHeight);
+    self.planeImageView.center = CGPointMake(346.5 * RATIO_X(rect), 42.5 * RATIO_Y(rect));
 }
 
 - (void)sendFlightBack {
@@ -156,7 +154,7 @@
     groupAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     
     [self.planeImageView.layer addAnimation:groupAnimation forKey:@"planeBackAnimation"];
-    self.backAnimation = groupAnimation;
+    self.planeImageView.center = CGPointMake(40.f, self.horizonLineHeight);
 }
 
 #pragma mark - KVO scrollView offset
@@ -219,12 +217,9 @@
 #pragma mark - CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     if([[anim valueForKey:@"id"] isEqualToString:@"setoff"]) {
-        CGRect rect = CGRectMake(0, 0, 375.f, self.horizonLineHeight);
-        self.planeImageView.center = CGPointMake(346.5 * RATIO_X(rect), 42.5 * RATIO_Y(rect));
     }
     else {
         self.isFlighting = NO;
-        self.planeImageView.center = CGPointMake(40.f, self.horizonLineHeight);
         [self.delegate didFinishedRefreshWithFlyHeaderView:self];
     }
 }
