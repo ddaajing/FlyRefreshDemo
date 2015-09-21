@@ -19,7 +19,6 @@
 @property (nonatomic, assign) CGFloat horizonLineHeight;
 
 @property (nonatomic, assign) BOOL isFlighting;
-@property (nonatomic, strong) CAShapeLayer *testFlightLayer;
 @property (nonatomic, strong) UIView *roundedAirPort;
 
 @property (nonatomic, strong) CAAnimation *setOffAnimation;
@@ -99,16 +98,6 @@
     
     // tableView
     [self addSubview:self.tableView];
-    
-    self.testFlightLayer = [CAShapeLayer layer];
-    self.testFlightLayer.frame = self.bounds;
-    self.testFlightLayer.fillColor = [UIColor clearColor].CGColor;
-    self.testFlightLayer.backgroundColor = [UIColor clearColor].CGColor;
-    [self.testFlightLayer setStrokeColor:[UIColor redColor].CGColor];
-    [self.testFlightLayer setLineWidth:1];
-
-    self.testFlightLayer.path = [self flightPathWithOffset:0 andStatus:FLIGHT_STATUS_WHOLE];
-    [self.layer addSublayer:self.testFlightLayer];
 }
 
 #pragma mark -  animate flight along specific path
@@ -202,8 +191,6 @@
 #pragma mark - scrollViewWillEndDragging
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     CGFloat offset = self.tableView.contentOffset.y;
-
-    self.testFlightLayer.path = [self flightPathWithOffset:-offset andStatus:FLIGHT_STATUS_SET_OFF];
     
     if (-offset >= SET_OFF_OFFSET) {
         if (!self.isFlighting) {

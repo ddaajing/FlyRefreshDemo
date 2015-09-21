@@ -80,12 +80,12 @@
 #pragma mark - FlyRefreshViewDelegate
 - (void)requestDataWithFlyHeaderView:(FlyHeaderView *)flyHeaderView {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)),
-                   dispatch_get_main_queue(), ^{
-                       [self didRecievedDataWithFlyHeaderView:self.flyHeaderView];
-                   });
+       dispatch_get_main_queue(), ^{
+           [self didReceivedData];
+       });
 }
 
-- (void)didRecievedDataWithFlyHeaderView:(FlyHeaderView *)flyHeaderView {
+- (void)didReceivedData {
     [self.tableData insertObject:[[CellDataEntity alloc] initWithTitle:@"New Entity" andIcon:@"icon2" andPublishDate:@"Sep 25, 2015"] atIndex:0];
     [self.flyHeaderView sendFlightBack];
 }

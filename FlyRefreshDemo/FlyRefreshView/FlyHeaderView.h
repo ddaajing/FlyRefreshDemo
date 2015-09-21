@@ -20,7 +20,6 @@ typedef NS_ENUM(NSInteger, FLIGHT_STATUS) {
 
 @required
 - (void)requestDataWithFlyHeaderView:(FlyHeaderView *)flyHeaderView;
-- (void)didRecievedDataWithFlyHeaderView:(FlyHeaderView *)flyHeaderView;
 - (void)didFinishedRefreshWithFlyHeaderView:(FlyHeaderView *)flyHeaderView;
 
 @end
@@ -34,6 +33,10 @@ typedef NS_ENUM(NSInteger, FLIGHT_STATUS) {
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset;
 
+/**
+ *  you must invoke this method once received data from server,
+ *  otherwise, the flight will never come back
+ */
 - (void)sendFlightBack;
 
 @end
