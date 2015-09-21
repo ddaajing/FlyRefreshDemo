@@ -8,9 +8,17 @@
 #import <UIKit/UIKit.h>
 #import "RefreshMoutainHeaderView.h"
 
+@protocol FlyHeaderViewDelegate <NSObject>
+
+- (void)refreshData;
+- (void)animationDidFinished;
+
+@end
+
 @interface FlyHeaderView : UIView
 
 @property (nonatomic, strong) UITableView* tableView;
+@property (nonatomic, weak) id<FlyHeaderViewDelegate> delegate;
 
 - (FlyHeaderView *)initWithTableViewAndHeaderHeight:(CGFloat)height;
 

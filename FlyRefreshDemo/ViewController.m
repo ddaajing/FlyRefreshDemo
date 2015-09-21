@@ -8,10 +8,13 @@
 
 #import "ViewController.h"
 #import "FlyHeaderView.h"
+#import "CellDataEntity.h"
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, FlyHeaderViewDelegate>
 
 @property (nonatomic, strong) FlyHeaderView *flyHeaderView;
+
+@property (nonatomic, strong) NSMutableArray *tableData;
 
 @end
 
@@ -21,11 +24,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self initData];
+    
     FlyHeaderView *flyHeaderView = [[FlyHeaderView alloc] initWithTableViewAndHeaderHeight:300];
+    flyHeaderView.delegate = self;
     flyHeaderView.tableView.delegate = self;
     flyHeaderView.tableView.dataSource = self;
     [self.view addSubview:flyHeaderView];
     self.flyHeaderView = flyHeaderView;
+}
+
+- (void)initData {
+    CellDataEntity *cell0 = [[CellDataEntity alloc] initWithTitle:@"Photos" andIcon:@"icon1" andPublishDate:@"May 9, 2015"];
+    CellDataEntity *cell1 = [[CellDataEntity alloc] initWithTitle:@"Magic Cube Show" andIcon:@"icon2" andPublishDate:@"OCT 11, 2015"];
+    CellDataEntity *cell2 = [[CellDataEntity alloc] initWithTitle:@"Meeting Minutes" andIcon:@"icon3" andPublishDate:@"Jun 22, 2015"];
+    CellDataEntity *cell3 = [[CellDataEntity alloc] initWithTitle:@"Meeting" andIcon:@"icon1" andPublishDate:@"May 9, 2015"];
+    CellDataEntity *cell4 = [[CellDataEntity alloc] initWithTitle:@"Go Shopping" andIcon:@"icon1" andPublishDate:@"May 9, 2015"];
+    
+    self.tableData = [@[cell0, cell1, cell2, cell3, cell4,] mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,7 +54,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.tableData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -49,7 +65,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle  reuseIdentifier:cellId];
     }
     cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", @(indexPath.row)];
+    cell.textLabel.text = ((CellDataEntity *)self.tableData[indexPath.row]).title;
     return cell;
 }
 
@@ -60,4 +76,14 @@
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     [self.flyHeaderView scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
 }
+
+#pragma mark - FlyRefreshViewDelegate
+- (void)refreshData {
+    [self.tableData insertObject:[[CellDataEntity alloc] initWithTitle:@"New Entity" andIcon:@"icon2" andPublishDate:@"Sep 25, 2015"] atIndex:0];
+}
+
+- (void)animationDidFinished {
+    [self.flyHeaderView.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+}
+
 @end

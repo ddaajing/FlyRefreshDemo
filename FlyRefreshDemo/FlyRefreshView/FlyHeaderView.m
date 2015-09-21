@@ -8,7 +8,7 @@
 #import "FlyHeaderView.h"
 
 #define IMAGE_HEIGHT 35.f
-#define SET_OFF_OFFSET 30.f
+#define SET_OFF_OFFSET 50.f
 
 @interface FlyHeaderView()
 
@@ -169,6 +169,8 @@
         if (!self.isFlighting) {
             self.isFlighting = YES;
             [self animateFlightWithOffset:-offset];
+            
+            [self.delegate refreshData];
         }
     }
 }
@@ -190,6 +192,7 @@
 #pragma mark - CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     self.isFlighting = NO;
+    [self.delegate animationDidFinished];
 }
 
 @end
