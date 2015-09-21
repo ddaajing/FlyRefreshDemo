@@ -22,6 +22,9 @@
 @property (nonatomic, strong) CAShapeLayer *testFlightLayer;
 @property (nonatomic, strong) UIView *roundedAirPort;
 
+@property (nonatomic, strong) CAAnimation *setOffAnimation;
+@property (nonatomic, strong) CAAnimation *backAnimation;
+
 @end
 
 @implementation FlyHeaderView
@@ -96,38 +99,75 @@
     
     // tableView
     [self addSubview:self.tableView];
+    
+    self.testFlightLayer = [CAShapeLayer layer];
+    self.testFlightLayer.frame = self.bounds;
+    self.testFlightLayer.fillColor = [UIColor clearColor].CGColor;
+    self.testFlightLayer.backgroundColor = [UIColor clearColor].CGColor;
+    [self.testFlightLayer setStrokeColor:[UIColor redColor].CGColor];
+    [self.testFlightLayer setLineWidth:1];
+
+    self.testFlightLayer.path = [self flightPathWithOffset:0 andStatus:FLIGHT_STATUS_WHOLE];
+    [self.layer addSublayer:self.testFlightLayer];
 }
 
 #pragma mark -  animate flight along specific path
-- (CGPathRef)flightPathWithOffset:(CGFloat)offset {
+- (CGPathRef)flightPathWithOffset:(CGFloat)offset andStatus:(FLIGHT_STATUS)status {
     CGRect rect = CGRectMake(0, 0, 375.f, self.horizonLineHeight);
-    
+
     UIBezierPath* flightPath = UIBezierPath.bezierPath;
-    [flightPath moveToPoint: CGPointMake(23 * RATIO_X(rect), 120 * RATIO_Y(rect) + offset)];
-    [flightPath addLineToPoint:CGPointMake(300.5 * RATIO_X(rect), 12.5 * RATIO_Y(rect))];
-    [flightPath addLineToPoint: CGPointMake(346.5 * RATIO_X(rect), 42.5 * RATIO_Y(rect))];
-    [flightPath addLineToPoint: CGPointMake(0. * RATIO_X(rect), 102.5 * RATIO_Y(rect))];
-    [flightPath addLineToPoint: CGPointMake(-38.5 * RATIO_X(rect), 120 * RATIO_Y(rect))];
-    [flightPath addLineToPoint: CGPointMake(23 * RATIO_X(rect), 120 * RATIO_Y(rect))];
+    // flight out of sight
+    if (status == FLIGHT_STATUS_SET_OFF) {
+        [flightPath moveToPoint: CGPointMake(23 * RATIO_X(rect), 120 * RATIO_Y(rect) + offset)];
+        [flightPath addLineToPoint:CGPointMake(300.5 * RATIO_X(rect), 12.5 * RATIO_Y(rect))];
+        [flightPath addLineToPoint: CGPointMake(346.5 * RATIO_X(rect), 42.5 * RATIO_Y(rect))];
+    }
+    else { // flight back
+        [flightPath moveToPoint: CGPointMake(346.5 * RATIO_X(rect), 42.5 * RATIO_Y(rect))];
+        [flightPath addLineToPoint: CGPointMake(0. * RATIO_X(rect), 102.5 * RATIO_Y(rect))];
+        [flightPath addLineToPoint: CGPointMake(-38.5 * RATIO_X(rect), 120 * RATIO_Y(rect))];
+        [flightPath addLineToPoint: CGPointMake(23 * RATIO_X(rect), 120 * RATIO_Y(rect))];
+    }
     
     return flightPath.CGPath;
 }
 
-- (void)animateFlightWithOffset:(CGFloat)offset {
+- (void)setOffFlightWithOffset:(CGFloat)offset {
     self.planeImageView.transform = CGAffineTransformIdentity;
     
     CAKeyframeAnimation *flightAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    flightAnimation.path = [self flightPathWithOffset:offset];
+    flightAnimation.path = [self flightPathWithOffset:offset andStatus:FLIGHT_STATUS_SET_OFF];
     flightAnimation.calculationMode = kCAAnimationPaced;
     flightAnimation.rotationMode = kCAAnimationRotateAuto;
     
     CAAnimationGroup *groupAnimation = [[CAAnimationGroup alloc] init];
     groupAnimation.animations = @[flightAnimation];
-    groupAnimation.duration = 2.f;
+    groupAnimation.duration = 1.5f;
     groupAnimation.delegate = self;
-
+    groupAnimation.fillMode = kCAFillModeForwards;
+    [groupAnimation setValue:@"setoff" forKey:@"id"];
     groupAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
     [self.planeImageView.layer addAnimation:groupAnimation forKey:@"planeAnimation"];
+    self.setOffAnimation = groupAnimation;
+}
+
+- (void)sendFlightBack {
+    CAKeyframeAnimation *flightAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    flightAnimation.path = [self flightPathWithOffset:0 andStatus:FLIGHT_STATUS_BACK];
+    flightAnimation.calculationMode = kCAAnimationPaced;
+    flightAnimation.rotationMode = kCAAnimationRotateAuto;
+    
+    CAAnimationGroup *groupAnimation = [[CAAnimationGroup alloc] init];
+    groupAnimation.animations = @[flightAnimation];
+    groupAnimation.duration = 1.5f;
+    groupAnimation.delegate = self;
+    groupAnimation.fillMode = kCAFillModeForwards;
+    [groupAnimation setValue:@"back" forKey:@"id"];
+    groupAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
+    [self.planeImageView.layer addAnimation:groupAnimation forKey:@"planeBackAnimation"];
+    self.backAnimation = groupAnimation;
 }
 
 #pragma mark - KVO scrollView offset
@@ -163,14 +203,14 @@
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     CGFloat offset = self.tableView.contentOffset.y;
 
-    self.testFlightLayer.path = [self flightPathWithOffset:-offset];
+    self.testFlightLayer.path = [self flightPathWithOffset:-offset andStatus:FLIGHT_STATUS_SET_OFF];
     
     if (-offset >= SET_OFF_OFFSET) {
         if (!self.isFlighting) {
             self.isFlighting = YES;
-            [self animateFlightWithOffset:-offset];
+            [self setOffFlightWithOffset:-offset];
             
-            [self.delegate refreshData];
+            [self.delegate requestDataWithFlyHeaderView:self];
         }
     }
 }
@@ -191,8 +231,15 @@
 
 #pragma mark - CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    self.isFlighting = NO;
-    [self.delegate animationDidFinished];
+    if([[anim valueForKey:@"id"] isEqualToString:@"setoff"]) {
+        CGRect rect = CGRectMake(0, 0, 375.f, self.horizonLineHeight);
+        self.planeImageView.center = CGPointMake(346.5 * RATIO_X(rect), 42.5 * RATIO_Y(rect));
+    }
+    else {
+        self.isFlighting = NO;
+        self.planeImageView.center = CGPointMake(40.f, self.horizonLineHeight);
+        [self.delegate didFinishedRefreshWithFlyHeaderView:self];
+    }
 }
 
 @end

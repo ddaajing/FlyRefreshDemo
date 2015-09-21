@@ -78,11 +78,19 @@
 }
 
 #pragma mark - FlyRefreshViewDelegate
-- (void)refreshData {
-    [self.tableData insertObject:[[CellDataEntity alloc] initWithTitle:@"New Entity" andIcon:@"icon2" andPublishDate:@"Sep 25, 2015"] atIndex:0];
+- (void)requestDataWithFlyHeaderView:(FlyHeaderView *)flyHeaderView {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)),
+                   dispatch_get_main_queue(), ^{
+                       [self didRecievedDataWithFlyHeaderView:self.flyHeaderView];
+                   });
 }
 
-- (void)animationDidFinished {
+- (void)didRecievedDataWithFlyHeaderView:(FlyHeaderView *)flyHeaderView {
+    [self.tableData insertObject:[[CellDataEntity alloc] initWithTitle:@"New Entity" andIcon:@"icon2" andPublishDate:@"Sep 25, 2015"] atIndex:0];
+    [self.flyHeaderView sendFlightBack];
+}
+
+- (void)didFinishedRefreshWithFlyHeaderView:(FlyHeaderView *)flyHeaderView {
     [self.flyHeaderView.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
 }
 
