@@ -21,6 +21,9 @@
 @property (nonatomic, assign) BOOL isFlighting;
 @property (nonatomic, strong) UIView *roundedAirPort;
 
+@property (nonatomic, strong) CAEmitterLayer *successHintLayer;
+@property (nonatomic, strong) CAEmitterLayer *failHintLayer;
+
 @end
 
 @implementation FlyHeaderView
@@ -81,6 +84,37 @@
         [_tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
     }
     return _tableView;
+}
+
+// Success layer
+- (CAEmitterLayer *)successHintLayer {
+    if (!_successHintLayer) {
+        _successHintLayer = [CAEmitterLayer layer];
+        _successHintLayer.emitterShape = kCAEmitterLayerLine;
+        _successHintLayer.emitterPosition = CGPointMake(40.f, self.horizonLineHeight);
+        _successHintLayer.emitterSize = CGSizeMake(40, 40);
+        _successHintLayer.emitterMode = kCAEmitterLayerOutline;
+        _successHintLayer.renderMode = kCAEmitterLayerAdditive;
+        _successHintLayer.seed = (arc4random() % 100) + 1;
+        
+        CAEmitterCell* spark = [CAEmitterCell emitterCell];
+        spark.birthRate	= 20;
+        spark.velocity = 125;
+        spark.emissionRange	= 2 * M_PI;	// 360 deg
+        spark.yAcceleration	= 20;		// gravity
+        spark.lifetime = 1;
+        spark.contents = (id) [[UIImage imageNamed:@"star"] CGImage];
+        spark.scaleSpeed = 0.2;
+        spark.greenSpeed = 0.1;
+        spark.redSpeed = 0.1;
+        spark.blueSpeed	= 0.1;
+        spark.alphaSpeed = -0.25;
+        spark.spin = 2 * M_PI;
+        spark.spinRange	= 2 * M_PI;
+
+        _successHintLayer.emitterCells = @[spark];
+    }
+    return _successHintLayer;
 }
 
 - (void)configSubviews {
@@ -221,6 +255,16 @@
     else {
         self.isFlighting = NO;
         [self.delegate didFinishedRefreshWithFlyHeaderView:self];
+    }
+}
+
+- (void)showFeedbackHintWithStatus:(FLIGHT_STATUS)status {
+    if (status == FLIGHT_STATUS_SUCCESS) {
+        [self.layer insertSublayer:self.successHintLayer below:self.planeImageView.layer];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)),
+           dispatch_get_main_queue(), ^{
+               [self.successHintLayer removeFromSuperlayer];
+           });
     }
 }
 

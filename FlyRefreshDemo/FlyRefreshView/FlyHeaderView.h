@@ -11,7 +11,8 @@
 typedef NS_ENUM(NSInteger, FLIGHT_STATUS) {
     FLIGHT_STATUS_SET_OFF,
     FLIGHT_STATUS_BACK,
-    FLIGHT_STATUS_WHOLE,
+    FLIGHT_STATUS_FAIL,
+    FLIGHT_STATUS_SUCCESS
 };
 
 @class FlyHeaderView;
@@ -38,5 +39,7 @@ typedef NS_ENUM(NSInteger, FLIGHT_STATUS) {
  *  otherwise, the flight will never come back
  */
 - (void)sendFlightBack;
+
+- (void)showFeedbackHintWithStatus:(FLIGHT_STATUS)status;
 
 @end

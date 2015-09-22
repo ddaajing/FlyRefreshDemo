@@ -92,6 +92,7 @@
 
 - (void)didFinishedRefreshWithFlyHeaderView:(FlyHeaderView *)flyHeaderView {
     [self.flyHeaderView.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    [self.flyHeaderView showFeedbackHintWithStatus:FLIGHT_STATUS_SUCCESS];
 }
 
 @end
