@@ -218,6 +218,7 @@
     switchDayNightAni.delegate = self;
     [switchDayNightAni setValue:@"switch" forKey:@"id"];
     [self.refreshMountainHeaderView.layer addAnimation:switchDayNightAni forKey:@"switchDayAndNight"];
+    self.refreshMountainHeaderView.backgroundColor = toColor;
 }
 
 #pragma mark - KVO scrollView offset
