@@ -19,6 +19,8 @@
 @property (nonatomic, assign) CGFloat horizonLineHeight;
 
 @property (nonatomic, assign) BOOL isFlighting;
+@property (nonatomic, assign) BOOL isDay;
+
 @property (nonatomic, strong) UIView *roundedAirPort;
 
 @property (nonatomic, strong) CAEmitterLayer *successHintLayer;
@@ -35,11 +37,25 @@
     if (self = [super initWithFrame:bounds]) {
         self.headerHeight = height;
         self.horizonLineHeight = height - IMAGE_HEIGHT / 2;
-
+        self.isDay = YES;
         [self configSubviews];
     }
     
     return self;
+}
+
+- (void)configSubviews {
+    // refresh header view
+    [self addSubview:self.refreshMountainHeaderView];
+    
+    // rounded airport
+    [self addSubview:self.roundedAirPort];
+    
+    // flight
+    [self addSubview:self.planeImageView];
+    
+    // tableView
+    [self addSubview:self.tableView];
 }
 
 #pragma mark - setter & getter
@@ -117,20 +133,6 @@
     return _successHintLayer;
 }
 
-- (void)configSubviews {
-    // refresh header view
-    [self addSubview:self.refreshMountainHeaderView];
-    
-    // rounded airport
-    [self addSubview:self.roundedAirPort];
-
-    // flight
-    [self addSubview:self.planeImageView];
-    
-    // tableView
-    [self addSubview:self.tableView];
-}
-
 #pragma mark -  animate flight along specific path
 - (CGPathRef)flightPathWithOffset:(CGFloat)offset andStatus:(FLIGHT_STATUS)status {
     CGRect rect = CGRectMake(0, 0, 375.f, self.horizonLineHeight);
@@ -191,6 +193,33 @@
     self.planeImageView.center = CGPointMake(40.f, self.horizonLineHeight);
 }
 
+/**
+ *  loading animation when flight is flighting
+ *
+ *  @param switchToDay current time is day or night
+ */
+- (void)switchDayAndNight:(BOOL)switchToDay {
+    UIColor *fromColor;
+    UIColor *toColor;
+    
+    if (switchToDay) {
+        fromColor = [UIColor colorWithRed:0.502 green:0.792 blue:0.725 alpha:1.000];
+        toColor = [UIColor colorWithRed:0.193 green:0.306 blue:0.281 alpha:1.000];
+    }
+    else {
+        fromColor = [UIColor colorWithRed:0.193 green:0.306 blue:0.281 alpha:1.000];
+        toColor = [UIColor colorWithRed:0.502 green:0.792 blue:0.725 alpha:1.000];
+    }
+    
+    CABasicAnimation *switchDayNightAni = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
+    switchDayNightAni.fromValue = (__bridge id _Nullable)(fromColor.CGColor);
+    switchDayNightAni.toValue = (__bridge id _Nullable)(toColor.CGColor);
+    switchDayNightAni.duration = 2;
+    switchDayNightAni.delegate = self;
+    [switchDayNightAni setValue:@"switch" forKey:@"id"];
+    [self.refreshMountainHeaderView.layer addAnimation:switchDayNightAni forKey:@"switchDayAndNight"];
+}
+
 #pragma mark - KVO scrollView offset
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if (self.tableView) {
@@ -230,6 +259,8 @@
             [self setOffFlightWithOffset:-offset];
             
             [self.delegate requestDataWithFlyHeaderView:self];
+            
+            [self switchDayAndNight:self.isDay];
         }
     }
 }
@@ -252,9 +283,18 @@
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     if([[anim valueForKey:@"id"] isEqualToString:@"setoff"]) {
     }
-    else {
+    else if([[anim valueForKey:@"id"] isEqualToString:@"back"]){
         self.isFlighting = NO;
         [self.delegate didFinishedRefreshWithFlyHeaderView:self];
+    }
+    else if([[anim valueForKey:@"id"] isEqualToString:@"switch"]) {
+        if (self.isFlighting) {
+            [self switchDayAndNight:(self.isDay = !self.isDay)];
+        }
+        else {
+            [self.refreshMountainHeaderView.layer removeAnimationForKey:@"switchDayAndNight"];
+            self.isDay = YES;
+        }
     }
 }
 
