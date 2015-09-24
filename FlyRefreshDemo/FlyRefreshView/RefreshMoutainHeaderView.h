@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
+
 #define RATIO_Y(rect) (CGRectGetMaxY(rect) / 120.f)
 #define RATIO_X(rect) (CGRectGetMaxX(rect) / 240.f)
 

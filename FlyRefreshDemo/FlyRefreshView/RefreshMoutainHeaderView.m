@@ -103,14 +103,14 @@
 
 - (TreeView *)middleTree {
     if (!_middleTree) {
-        _middleTree = [[TreeView alloc] initWithFrame:CGRectMake(260.f / 375.f * [UIScreen mainScreen].bounds.size.width, 82.f, 30, 120) andTrunkColor:self.nearByColor andLeafColor:[UIColor colorWithRed:0.240 green:0.415 blue:0.442 alpha:1.000]];
+        _middleTree = [[TreeView alloc] initWithFrame:CGRectMake(260.f / 375.f * SCREEN_WIDTH, 82.f, 30, 120) andTrunkColor:self.nearByColor andLeafColor:[UIColor colorWithRed:0.240 green:0.415 blue:0.442 alpha:1.000]];
     }
     return _middleTree;
 }
 
 - (TreeView *)leftTree {
     if (!_leftTree) {
-        _leftTree = [[TreeView alloc] initWithFrame:CGRectMake(235.f / 375.f * [UIScreen mainScreen].bounds.size.width, 100.f, 15, 90) andTrunkColor:[UIColor colorWithRed:0.254 green:0.439 blue:0.467 alpha:1.000] andLeafColor:self.moreFarColor];
+        _leftTree = [[TreeView alloc] initWithFrame:CGRectMake(235.f / 375.f * SCREEN_WIDTH, 100.f, 15, 90) andTrunkColor:[UIColor colorWithRed:0.254 green:0.439 blue:0.467 alpha:1.000] andLeafColor:self.moreFarColor];
         [self addSubview:_leftTree];
     }
     return _leftTree;
@@ -118,21 +118,21 @@
 
 - (TreeView *)rightTree {
     if (!_rightTree) {
-        _rightTree = [[TreeView alloc] initWithFrame:CGRectMake(235.f / 375.f * [UIScreen mainScreen].bounds.size.width, 100.f, 15, 90) andTrunkColor:[UIColor colorWithRed:0.254 green:0.439 blue:0.467 alpha:1.000] andLeafColor:self.moreFarColor];
+        _rightTree = [[TreeView alloc] initWithFrame:CGRectMake(235.f / 375.f * SCREEN_WIDTH, 100.f, 15, 90) andTrunkColor:[UIColor colorWithRed:0.254 green:0.439 blue:0.467 alpha:1.000] andLeafColor:self.moreFarColor];
     }
     return _rightTree;
 }
 
 - (TreeView *)leftFarTree {
     if (!_leftFarTree) {
-        _leftFarTree = [[TreeView alloc] initWithFrame:CGRectMake(50 / 375.f * [UIScreen mainScreen].bounds.size.width, 103.f, 15, 70) andTrunkColor:[UIColor colorWithRed:0.383 green:0.662 blue:0.705 alpha:1.000] andLeafColor:self.moreFarColor];
+        _leftFarTree = [[TreeView alloc] initWithFrame:CGRectMake(50 / 375.f * SCREEN_WIDTH, 103.f, 15, 70) andTrunkColor:[UIColor colorWithRed:0.383 green:0.662 blue:0.705 alpha:1.000] andLeafColor:self.moreFarColor];
     }
     return _leftFarTree;
 }
 
 - (TreeView *)rightFarTree {
     if (!_rightFarTree) {
-        _rightFarTree = [[TreeView alloc] initWithFrame:CGRectMake(70 / 375.f * [UIScreen mainScreen].bounds.size.width, 82.f, 13, 90) andTrunkColor:[UIColor colorWithRed:0.383 green:0.662 blue:0.705 alpha:1.000] andLeafColor:self.moreFarColor];
+        _rightFarTree = [[TreeView alloc] initWithFrame:CGRectMake(70 / 375.f * SCREEN_WIDTH, 82.f, 13, 90) andTrunkColor:[UIColor colorWithRed:0.383 green:0.662 blue:0.705 alpha:1.000] andLeafColor:self.moreFarColor];
     }
     return _rightFarTree;
 }

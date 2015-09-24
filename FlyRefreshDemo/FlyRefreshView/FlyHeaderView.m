@@ -135,7 +135,7 @@
 
 #pragma mark -  animate flight along specific path
 - (CGPathRef)flightPathWithOffset:(CGFloat)offset andStatus:(FLIGHT_STATUS)status {
-    CGRect rect = CGRectMake(0, 0, 375.f, self.horizonLineHeight);
+    CGRect rect = CGRectMake(0, 0, SCREEN_WIDTH, self.horizonLineHeight);
 
     UIBezierPath* flightPath = UIBezierPath.bezierPath;
     // flight out of sight
@@ -171,7 +171,7 @@
     groupAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     
     [self.planeImageView.layer addAnimation:groupAnimation forKey:@"planeAnimation"];
-    CGRect rect = CGRectMake(0, 0, 375.f, self.horizonLineHeight);
+    CGRect rect = CGRectMake(0, 0, SCREEN_WIDTH, self.horizonLineHeight);
     self.planeImageView.center = CGPointMake(346.5 * RATIO_X(rect), 42.5 * RATIO_Y(rect));
 }
 
