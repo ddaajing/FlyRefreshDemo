@@ -111,14 +111,13 @@
 - (TreeView *)leftTree {
     if (!_leftTree) {
         _leftTree = [[TreeView alloc] initWithFrame:CGRectMake(235.f / 375.f * SCREEN_WIDTH, 100.f, 15, 90) andTrunkColor:[UIColor colorWithRed:0.254 green:0.439 blue:0.467 alpha:1.000] andLeafColor:self.moreFarColor];
-        [self addSubview:_leftTree];
     }
     return _leftTree;
 }
 
 - (TreeView *)rightTree {
     if (!_rightTree) {
-        _rightTree = [[TreeView alloc] initWithFrame:CGRectMake(235.f / 375.f * SCREEN_WIDTH, 100.f, 15, 90) andTrunkColor:[UIColor colorWithRed:0.254 green:0.439 blue:0.467 alpha:1.000] andLeafColor:self.moreFarColor];
+        _rightTree = [[TreeView alloc] initWithFrame:CGRectMake(300.f / 375.f * SCREEN_WIDTH, 105.f, 15, 90) andTrunkColor:[UIColor colorWithRed:0.254 green:0.439 blue:0.467 alpha:1.000] andLeafColor:self.moreFarColor];
     }
     return _rightTree;
 }

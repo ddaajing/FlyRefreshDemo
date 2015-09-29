@@ -96,21 +96,21 @@
     
 //    NSLog(@"y position is %f", 19 * RATIO_TX(rect));
     
-    CGMutablePathRef mostFarMoutainpPath = CGPathCreateMutable();
-    CGPathMoveToPoint(mostFarMoutainpPath, NULL, 20.5 * RATIO_TX(rect), 77.5 * RATIO_TY(rect) + offset);
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, 20.5 * RATIO_TX(rect), 77.5 * RATIO_TY(rect) + offset);
     
-    CGPathAddCurveToPoint(mostFarMoutainpPath, NULL, 20.5 * RATIO_TX(rect), 77.5 * RATIO_TY(rect) + offset, 46.5 * RATIO_TX(rect), 81.5 * RATIO_TY(rect) + offset, 33.5 * RATIO_TX(rect), 48.5 * RATIO_TY(rect) + offset);
+    CGPathAddCurveToPoint(path, NULL, 20.5 * RATIO_TX(rect), 77.5 * RATIO_TY(rect) + offset, 46.5 * RATIO_TX(rect), 81.5 * RATIO_TY(rect) + offset, 33.5 * RATIO_TX(rect), 48.5 * RATIO_TY(rect) + offset);
     
     // to point and cp2 will be updated when dragging
-    CGPathAddCurveToPoint(mostFarMoutainpPath, NULL, 20.5 * RATIO_TX(rect), 15.5 * RATIO_TY(rect) + offset, (20.5 + windForce) * RATIO_TX(rect), (15.5 - windForce / 3) * RATIO_TY(rect) + offset, (20.5 + windForce) * RATIO_TX(rect), (15.5 - windForce / 3) * RATIO_TY(rect) + offset);
+    CGPathAddCurveToPoint(path, NULL, 20.5 * RATIO_TX(rect), 15.5 * RATIO_TY(rect) + offset, (20.5 + windForce) * RATIO_TX(rect), (15.5 - windForce / 3) * RATIO_TY(rect) + offset, (20.5 + windForce) * RATIO_TX(rect), (15.5 - windForce / 3) * RATIO_TY(rect) + offset);
 
     // cp1 will be updated when dragging
-    CGPathAddCurveToPoint(mostFarMoutainpPath, NULL, (20.5 + windForce)* RATIO_TX(rect), (15.5 - windForce / 3) * RATIO_TY(rect) + offset, 11.5 * RATIO_TX(rect), 31.5 * RATIO_TY(rect) + offset, 6.5 * RATIO_TX(rect), 48.5 * RATIO_TY(rect) + offset);
+    CGPathAddCurveToPoint(path, NULL, (20.5 + windForce)* RATIO_TX(rect), (15.5 - windForce / 3) * RATIO_TY(rect) + offset, 11.5 * RATIO_TX(rect), 31.5 * RATIO_TY(rect) + offset, 6.5 * RATIO_TX(rect), 48.5 * RATIO_TY(rect) + offset);
 
-    CGPathAddCurveToPoint(mostFarMoutainpPath, NULL, 1.5 * RATIO_TX(rect), 65.5 * RATIO_TY(rect) + offset, 0.5 * RATIO_TX(rect), 77.5 * RATIO_TY(rect) + offset, 20.5 * RATIO_TX(rect), 77.5 * RATIO_TY(rect) + offset);
+    CGPathAddCurveToPoint(path, NULL, 1.5 * RATIO_TX(rect), 65.5 * RATIO_TY(rect) + offset, 0.5 * RATIO_TX(rect), 77.5 * RATIO_TY(rect) + offset, 20.5 * RATIO_TX(rect), 77.5 * RATIO_TY(rect) + offset);
 
-    CGPathCloseSubpath(mostFarMoutainpPath);
-    return mostFarMoutainpPath;
+    CGPathCloseSubpath(path);
+    return path;
 }
 
 /**
@@ -123,12 +123,12 @@
 - (CGMutablePathRef)trunkPathWithOffset:(CGFloat)offset {
     CGRect rect = self.originalFrame;
     
-    CGMutablePathRef mostFarMoutainpPath = CGPathCreateMutable();
-    CGPathMoveToPoint(mostFarMoutainpPath, NULL, 19 * RATIO_TX(rect), 53.5 * RATIO_TY(rect) + offset);
-    CGPathAddLineToPoint(mostFarMoutainpPath, NULL, 19 * RATIO_TX(rect) , 90 * RATIO_TY(rect) + offset);
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, 19 * RATIO_TX(rect), 53.5 * RATIO_TY(rect) + offset);
+    CGPathAddLineToPoint(path, NULL, 19 * RATIO_TX(rect) , 90 * RATIO_TY(rect) + offset);
     
-    CGPathCloseSubpath(mostFarMoutainpPath);
-    return mostFarMoutainpPath;
+    CGPathCloseSubpath(path);
+    return path;
 }
 
 /**

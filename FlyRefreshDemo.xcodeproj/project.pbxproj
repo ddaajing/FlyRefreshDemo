@@ -7,30 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9065867F1BBA678900F97F7B /* TreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9065867E1BBA678900F97F7B /* TreeView.swift */; settings = {ASSET_TAGS = (); }; };
+		906586811BBA834200F97F7B /* RefreshMoutainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906586801BBA834200F97F7B /* RefreshMoutainHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
 		906D383E1B942D1B00665F3E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 906D383D1B942D1B00665F3E /* main.m */; };
 		906D38411B942D1B00665F3E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 906D38401B942D1B00665F3E /* AppDelegate.m */; };
 		906D38441B942D1B00665F3E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906D38431B942D1B00665F3E /* ViewController.m */; };
 		906D38471B942D1B00665F3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 906D38451B942D1B00665F3E /* Main.storyboard */; };
 		906D38491B942D1B00665F3E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 906D38481B942D1B00665F3E /* Images.xcassets */; };
 		906D384C1B942D1B00665F3E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906D384A1B942D1B00665F3E /* LaunchScreen.xib */; };
-		906D38581B942D1B00665F3E /* FlyRefreshDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 906D38571B942D1B00665F3E /* FlyRefreshDemoTests.m */; };
 		906D38631B94391600665F3E /* RefreshMoutainHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 906D38621B94391600665F3E /* RefreshMoutainHeaderView.m */; };
 		908074FA1B9C1A5000DB00E7 /* FlyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908074F91B9C1A5000DB00E7 /* FlyHeaderView.m */; };
 		908074FD1B9C3AC500DB00E7 /* TreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908074FC1B9C3AC500DB00E7 /* TreeView.m */; };
 		90DA0D4B1BAFAA6B00EB811B /* CellDataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA0D4A1BAFAA6B00EB811B /* CellDataEntity.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		906D38521B942D1B00665F3E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 906D38301B942D1B00665F3E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 906D38371B942D1B00665F3E;
-			remoteInfo = FlyRefreshDemo;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		9065867E1BBA678900F97F7B /* TreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeView.swift; sourceTree = "<group>"; };
+		906586801BBA834200F97F7B /* RefreshMoutainHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshMoutainHeaderView.swift; sourceTree = "<group>"; };
 		906D38381B942D1B00665F3E /* FlyRefreshDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyRefreshDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		906D383C1B942D1B00665F3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		906D383D1B942D1B00665F3E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -41,9 +34,6 @@
 		906D38461B942D1B00665F3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		906D38481B942D1B00665F3E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		906D384B1B942D1B00665F3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		906D38511B942D1B00665F3E /* FlyRefreshDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlyRefreshDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		906D38561B942D1B00665F3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		906D38571B942D1B00665F3E /* FlyRefreshDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyRefreshDemoTests.m; sourceTree = "<group>"; };
 		906D38611B94391600665F3E /* RefreshMoutainHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshMoutainHeaderView.h; sourceTree = "<group>"; };
 		906D38621B94391600665F3E /* RefreshMoutainHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshMoutainHeaderView.m; sourceTree = "<group>"; };
 		908074F81B9C1A5000DB00E7 /* FlyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyHeaderView.h; sourceTree = "<group>"; };
@@ -56,13 +46,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		906D38351B942D1B00665F3E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		906D384E1B942D1B00665F3E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -85,11 +68,19 @@
 			path = FlyRefreshView;
 			sourceTree = "<group>";
 		};
+		906586821BBA906900F97F7B /* Swfit-version */ = {
+			isa = PBXGroup;
+			children = (
+				9065867E1BBA678900F97F7B /* TreeView.swift */,
+				906586801BBA834200F97F7B /* RefreshMoutainHeaderView.swift */,
+			);
+			name = "Swfit-version";
+			sourceTree = "<group>";
+		};
 		906D382F1B942D1B00665F3E = {
 			isa = PBXGroup;
 			children = (
 				906D383A1B942D1B00665F3E /* FlyRefreshDemo */,
-				906D38541B942D1B00665F3E /* FlyRefreshDemoTests */,
 				906D38391B942D1B00665F3E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				906D38381B942D1B00665F3E /* FlyRefreshDemo.app */,
-				906D38511B942D1B00665F3E /* FlyRefreshDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +96,7 @@
 		906D383A1B942D1B00665F3E /* FlyRefreshDemo */ = {
 			isa = PBXGroup;
 			children = (
+				906586821BBA906900F97F7B /* Swfit-version */,
 				90625B111B9ED60200F056CE /* FlyRefreshView */,
 				906D383F1B942D1B00665F3E /* AppDelegate.h */,
 				906D38401B942D1B00665F3E /* AppDelegate.m */,
@@ -130,23 +121,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		906D38541B942D1B00665F3E /* FlyRefreshDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				906D38571B942D1B00665F3E /* FlyRefreshDemoTests.m */,
-				906D38551B942D1B00665F3E /* Supporting Files */,
-			);
-			path = FlyRefreshDemoTests;
-			sourceTree = "<group>";
-		};
-		906D38551B942D1B00665F3E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				906D38561B942D1B00665F3E /* Info.plist */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,40 +141,19 @@
 			productReference = 906D38381B942D1B00665F3E /* FlyRefreshDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		906D38501B942D1B00665F3E /* FlyRefreshDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 906D385E1B942D1B00665F3E /* Build configuration list for PBXNativeTarget "FlyRefreshDemoTests" */;
-			buildPhases = (
-				906D384D1B942D1B00665F3E /* Sources */,
-				906D384E1B942D1B00665F3E /* Frameworks */,
-				906D384F1B942D1B00665F3E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				906D38531B942D1B00665F3E /* PBXTargetDependency */,
-			);
-			name = FlyRefreshDemoTests;
-			productName = FlyRefreshDemoTests;
-			productReference = 906D38511B942D1B00665F3E /* FlyRefreshDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		906D38301B942D1B00665F3E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = ddaajing;
 				TargetAttributes = {
 					906D38371B942D1B00665F3E = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 58TC3AHZ4P;
-					};
-					906D38501B942D1B00665F3E = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 906D38371B942D1B00665F3E;
 					};
 				};
 			};
@@ -218,7 +171,6 @@
 			projectRoot = "";
 			targets = (
 				906D38371B942D1B00665F3E /* FlyRefreshDemo */,
-				906D38501B942D1B00665F3E /* FlyRefreshDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -234,13 +186,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		906D384F1B942D1B00665F3E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -249,8 +194,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				90DA0D4B1BAFAA6B00EB811B /* CellDataEntity.m in Sources */,
+				9065867F1BBA678900F97F7B /* TreeView.swift in Sources */,
 				906D38441B942D1B00665F3E /* ViewController.m in Sources */,
 				906D38631B94391600665F3E /* RefreshMoutainHeaderView.m in Sources */,
+				906586811BBA834200F97F7B /* RefreshMoutainHeaderView.swift in Sources */,
 				908074FD1B9C3AC500DB00E7 /* TreeView.m in Sources */,
 				908074FA1B9C1A5000DB00E7 /* FlyHeaderView.m in Sources */,
 				906D38411B942D1B00665F3E /* AppDelegate.m in Sources */,
@@ -258,23 +205,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		906D384D1B942D1B00665F3E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				906D38581B942D1B00665F3E /* FlyRefreshDemoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		906D38531B942D1B00665F3E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 906D38371B942D1B00665F3E /* FlyRefreshDemo */;
-			targetProxy = 906D38521B942D1B00665F3E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		906D38451B942D1B00665F3E /* Main.storyboard */ = {
@@ -382,11 +313,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "FlyRefreshDemo/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -394,45 +327,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "FlyRefreshDemo/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		906D385F1B942D1B00665F3E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "FlyRefreshDemoTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlyRefreshDemo.app/FlyRefreshDemo";
-			};
-			name = Debug;
-		};
-		906D38601B942D1B00665F3E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "FlyRefreshDemoTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlyRefreshDemo.app/FlyRefreshDemo";
 			};
 			name = Release;
 		};
@@ -453,15 +353,6 @@
 			buildConfigurations = (
 				906D385C1B942D1B00665F3E /* Debug */,
 				906D385D1B942D1B00665F3E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		906D385E1B942D1B00665F3E /* Build configuration list for PBXNativeTarget "FlyRefreshDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				906D385F1B942D1B00665F3E /* Debug */,
-				906D38601B942D1B00665F3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
