@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RefreshMoutainHeaderView.h"
+#import "RefreshMountainHeaderView.h"
 
 typedef NS_ENUM(NSInteger, FLIGHT_STATUS) {
     FLIGHT_STATUS_SET_OFF,

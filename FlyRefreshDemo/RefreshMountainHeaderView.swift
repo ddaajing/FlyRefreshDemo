@@ -21,7 +21,7 @@ func RATIO_X(rect:CGRect) -> CGFloat {
 }
 
 
-class RefreshMoutainHeaderView: UIView {
+class RefreshMountainHeaderView: UIView {
     var mostFarMountainLayer: CAShapeLayer
     var moreFarMountainLayer: CAShapeLayer
     var nearByMountainLayer: CAShapeLayer

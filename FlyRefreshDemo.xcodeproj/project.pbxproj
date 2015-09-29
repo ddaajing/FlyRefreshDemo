@@ -8,14 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		9065867F1BBA678900F97F7B /* TreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9065867E1BBA678900F97F7B /* TreeView.swift */; settings = {ASSET_TAGS = (); }; };
-		906586811BBA834200F97F7B /* RefreshMoutainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906586801BBA834200F97F7B /* RefreshMoutainHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
+		906586811BBA834200F97F7B /* RefreshMountainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906586801BBA834200F97F7B /* RefreshMountainHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
+		906586841BBA968600F97F7B /* FlyRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906586831BBA968600F97F7B /* FlyRefreshView.swift */; settings = {ASSET_TAGS = (); }; };
 		906D383E1B942D1B00665F3E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 906D383D1B942D1B00665F3E /* main.m */; };
 		906D38411B942D1B00665F3E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 906D38401B942D1B00665F3E /* AppDelegate.m */; };
 		906D38441B942D1B00665F3E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906D38431B942D1B00665F3E /* ViewController.m */; };
 		906D38471B942D1B00665F3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 906D38451B942D1B00665F3E /* Main.storyboard */; };
 		906D38491B942D1B00665F3E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 906D38481B942D1B00665F3E /* Images.xcassets */; };
 		906D384C1B942D1B00665F3E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906D384A1B942D1B00665F3E /* LaunchScreen.xib */; };
-		906D38631B94391600665F3E /* RefreshMoutainHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 906D38621B94391600665F3E /* RefreshMoutainHeaderView.m */; };
+		906D38631B94391600665F3E /* RefreshMountainHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 906D38621B94391600665F3E /* RefreshMountainHeaderView.m */; };
 		908074FA1B9C1A5000DB00E7 /* FlyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908074F91B9C1A5000DB00E7 /* FlyHeaderView.m */; };
 		908074FD1B9C3AC500DB00E7 /* TreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908074FC1B9C3AC500DB00E7 /* TreeView.m */; };
 		90DA0D4B1BAFAA6B00EB811B /* CellDataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DA0D4A1BAFAA6B00EB811B /* CellDataEntity.m */; settings = {ASSET_TAGS = (); }; };
@@ -23,7 +24,8 @@
 
 /* Begin PBXFileReference section */
 		9065867E1BBA678900F97F7B /* TreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeView.swift; sourceTree = "<group>"; };
-		906586801BBA834200F97F7B /* RefreshMoutainHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshMoutainHeaderView.swift; sourceTree = "<group>"; };
+		906586801BBA834200F97F7B /* RefreshMountainHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshMountainHeaderView.swift; sourceTree = "<group>"; };
+		906586831BBA968600F97F7B /* FlyRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyRefreshView.swift; sourceTree = "<group>"; };
 		906D38381B942D1B00665F3E /* FlyRefreshDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyRefreshDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		906D383C1B942D1B00665F3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		906D383D1B942D1B00665F3E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -34,8 +36,8 @@
 		906D38461B942D1B00665F3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		906D38481B942D1B00665F3E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		906D384B1B942D1B00665F3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		906D38611B94391600665F3E /* RefreshMoutainHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshMoutainHeaderView.h; sourceTree = "<group>"; };
-		906D38621B94391600665F3E /* RefreshMoutainHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshMoutainHeaderView.m; sourceTree = "<group>"; };
+		906D38611B94391600665F3E /* RefreshMountainHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshMountainHeaderView.h; sourceTree = "<group>"; };
+		906D38621B94391600665F3E /* RefreshMountainHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshMountainHeaderView.m; sourceTree = "<group>"; };
 		908074F81B9C1A5000DB00E7 /* FlyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyHeaderView.h; sourceTree = "<group>"; };
 		908074F91B9C1A5000DB00E7 /* FlyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyHeaderView.m; sourceTree = "<group>"; };
 		908074FB1B9C3AC500DB00E7 /* TreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeView.h; sourceTree = "<group>"; };
@@ -60,8 +62,8 @@
 			children = (
 				908074F81B9C1A5000DB00E7 /* FlyHeaderView.h */,
 				908074F91B9C1A5000DB00E7 /* FlyHeaderView.m */,
-				906D38611B94391600665F3E /* RefreshMoutainHeaderView.h */,
-				906D38621B94391600665F3E /* RefreshMoutainHeaderView.m */,
+				906D38611B94391600665F3E /* RefreshMountainHeaderView.h */,
+				906D38621B94391600665F3E /* RefreshMountainHeaderView.m */,
 				908074FB1B9C3AC500DB00E7 /* TreeView.h */,
 				908074FC1B9C3AC500DB00E7 /* TreeView.m */,
 			);
@@ -72,7 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				9065867E1BBA678900F97F7B /* TreeView.swift */,
-				906586801BBA834200F97F7B /* RefreshMoutainHeaderView.swift */,
+				906586801BBA834200F97F7B /* RefreshMountainHeaderView.swift */,
+				906586831BBA968600F97F7B /* FlyRefreshView.swift */,
 			);
 			name = "Swfit-version";
 			sourceTree = "<group>";
@@ -148,7 +151,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = ddaajing;
 				TargetAttributes = {
 					906D38371B942D1B00665F3E = {
@@ -196,9 +199,10 @@
 				90DA0D4B1BAFAA6B00EB811B /* CellDataEntity.m in Sources */,
 				9065867F1BBA678900F97F7B /* TreeView.swift in Sources */,
 				906D38441B942D1B00665F3E /* ViewController.m in Sources */,
-				906D38631B94391600665F3E /* RefreshMoutainHeaderView.m in Sources */,
-				906586811BBA834200F97F7B /* RefreshMoutainHeaderView.swift in Sources */,
+				906D38631B94391600665F3E /* RefreshMountainHeaderView.m in Sources */,
+				906586811BBA834200F97F7B /* RefreshMountainHeaderView.swift in Sources */,
 				908074FD1B9C3AC500DB00E7 /* TreeView.m in Sources */,
+				906586841BBA968600F97F7B /* FlyRefreshView.swift in Sources */,
 				908074FA1B9C1A5000DB00E7 /* FlyHeaderView.m in Sources */,
 				906D38411B942D1B00665F3E /* AppDelegate.m in Sources */,
 				906D383E1B942D1B00665F3E /* main.m in Sources */,
@@ -250,6 +254,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -265,7 +270,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -302,7 +307,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -318,6 +323,7 @@
 				INFOPLIST_FILE = "FlyRefreshDemo/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "d.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -332,6 +338,7 @@
 				INFOPLIST_FILE = "FlyRefreshDemo/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "d.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
